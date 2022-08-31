@@ -1,38 +1,121 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --primary-color: #22254b;
+  --secondary-color: #373b69;
+  --shadow: rgba(0, 0, 0, 0.6);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: var(--secondary-color);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  background-color: var(--primary-color);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  box-shadow: 0 3px var(--shadow);
+  padding: 2rem;
+  width: 100%;
+}
+
+.search {
+  border-radius: 30px;
+  background-color: transparent;
+  padding: 0.5rem;
+  outline: none;
+  border: 2px solid var(--secondary-color);
+}
+
+.search::placeholder {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.search:focus {
+  background-color: var(--primary-color);
+  outline: none;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie {
+  width: 300px;
+  /* flex: 0 0 3.33333340 */
+  margin: 1rem;
+  border-radius: 3px;
+  background-color: var(--primary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.movie img {
+  /* height: 200px; */
+  width: 100%;
+  background-size: cover;
+}
+
+.movie-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  color: wheat;
+}
+
+.movie-info span {
+  background-color: var(--secondary-color);
+  padding: 0.3rem;
+}
+
+.movie-info span.green {
+  color: lightgreen;
+}
+
+.movie-info span.red {
+  color: red;
+}
+
+.movie-info span.yellow {
+  color: yellow;
+}
+
+.overview {
+  background-color: black;
+  color: white;
+  position: absolute;
+  padding: 2rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 100%;
+  transform: translateY(101%);
+  transition: transform 0.3s ease-in;
+}
+
+.movie img:hover {
+  opacity: 0.3;
+}
+
+.movie:hover {
+  box-shadow: 3px 5px var(--primary-color);
+}
+
+.movie:hover .overview {
+  transform: translateY(0);
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.errorPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
 }
